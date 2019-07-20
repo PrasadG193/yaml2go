@@ -98,12 +98,12 @@ func (yg *Yaml2Go) Structify(k string, v interface{}, arrayElem bool) {
 
 	case reflect.Slice:
 		val := v.([]interface{})
-		if len(val) != 0 {
+		if len(val) == 0 {
 			return
 		}
 		switch val[0].(type) {
 
-		case string, int, bool:
+		case string, int, bool, float64:
 			yg.AppendResult(fmt.Sprintf("%s []%s `yaml:\"%s\"`\n", goKeyFormat(k), reflect.TypeOf(val[0]), k))
 
 		case map[interface{}]interface{}:
