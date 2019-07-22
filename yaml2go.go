@@ -11,10 +11,12 @@ import (
 	"strings"
 )
 
+// Yaml2Go to store converted result
 type Yaml2Go struct {
 	Result string
 }
 
+// AppendResult add lines to the result
 func (yg *Yaml2Go) AppendResult(line string) {
 	yg.Result += line
 }
