@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"go/format"
 	"gopkg.in/yaml.v2"
-//	"io/ioutil"
 	"log"
 	"os"
 	"reflect"
@@ -28,7 +27,7 @@ func main() {
 		data += scanner.Text() + "\n"
 	}
 	if err := scanner.Err(); err != nil {
-	   log.Fatal("Error while reading input:", err)
+		log.Fatal("Error while reading input:", err)
 	}
 
 	// Unmarshal to map[string]interface{}
@@ -56,7 +55,7 @@ func main() {
 func goKeyFormat(key string) string {
 	var st string
 	strList := strings.Split(key, "_")
-	for _, str := range(strList) {
+	for _, str := range strList {
 		st += strings.Title(str)
 	}
 	if len(st) == 0 {
@@ -84,7 +83,7 @@ func (yg *Yaml2Go) Structify(k string, v interface{}, arrayElem bool) {
 		switch val := v.(type) {
 		case map[interface{}]interface{}:
 			if !arrayElem {
-				yg.AppendResult(fmt.Sprintf("%s struct { \n", goKeyFormat(k)))
+				yg.AppendResult(fmt.Sprintf("%s struct {\n", goKeyFormat(k)))
 			}
 			for k1, v1 := range val {
 				if _, ok := k1.(string); ok {
@@ -107,7 +106,7 @@ func (yg *Yaml2Go) Structify(k string, v interface{}, arrayElem bool) {
 			yg.AppendResult(fmt.Sprintf("%s []%s `yaml:\"%s\"`\n", goKeyFormat(k), reflect.TypeOf(val[0]), k))
 
 		case map[interface{}]interface{}:
-			yg.AppendResult(fmt.Sprintf("%s []struct { \n", goKeyFormat(k)))
+			yg.AppendResult(fmt.Sprintf("%s []struct {\n", goKeyFormat(k)))
 			for _, v1 := range val {
 				yg.Structify(goKeyFormat(k), v1, true)
 			}
