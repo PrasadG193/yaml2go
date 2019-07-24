@@ -1,5 +1,8 @@
 # yaml2go
+
 Converts YAML specs into Go type definitions
+
+![https://github.com/PrasadG193/yaml2go](./yaml2go.png)
 
 
 [![asciicast](https://asciinema.org/a/bCu9sI4j77r2Ut8U8pnTXZoU1.svg)](https://asciinema.org/a/bCu9sI4j77r2Ut8U8pnTXZoU1)
@@ -168,3 +171,16 @@ type Yaml2Go struct {
         IsUnderscore bool      `yaml:"is_underscore"`
 }
 ```
+
+## Contributing
+
+We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
+- Reporting a bug
+- Discussing the current state of the code
+- Submitting a fix
+- Proposing new features
+
+## Credits
+The Go Gopher is originally by [Renee French](http://reneefrench.blogspot.com/)
+
+This artwork is borrowed from an awesome artwork collection by [Egon Elbre](https://github.com/egonelbre/gophers)
