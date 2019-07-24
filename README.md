@@ -7,12 +7,19 @@ Converts YAML specs into Go type definitions
 
 [![asciicast](https://asciinema.org/a/bCu9sI4j77r2Ut8U8pnTXZoU1.svg)](https://asciinema.org/a/bCu9sI4j77r2Ut8U8pnTXZoU1)
 
+## Installation
 
-## Usage
+#### Step 1: Clone the repo
 ```bash
-$ yaml2go < example.yaml
+$ git clone https://github.com/PrasadG193/yaml2go.git $GOPATH/src/github.com/PrasadG193/yaml2go
 ```
-e.g
+
+#### Step 2: Build binary using go install
+```bash
+$ go install $GOPATH/src/github.com/PrasadG193/yaml2go
+```
+
+#### Step 3: Convert YAML specs into Go type
 
 ```bash
 $ cat example1.yaml
@@ -86,19 +93,12 @@ type Yaml2Go struct {
 }
 ```
 
-## Installation
+## Usage
 
-#### Step 1: Clone the repo
 ```bash
-$ git clone https://github.com/PrasadG193/yaml2go.git $GOPATH/src/github.com/PrasadG193/yaml2go
+$ yaml2go < example.yaml
 ```
-
-#### Step 2: Build binary using go install
-```bash
-$ go install $GOPATH/src/github.com/PrasadG193/yaml2go
-```
-
-#### Step 3: Convert YAML specs into Go type
+e.g
 
 ```bash
 $ cat example1.yaml
