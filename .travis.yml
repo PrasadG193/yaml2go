@@ -1,0 +1,16 @@
+language: go
+
+go:
+  - 1.12
+
+install:
+  - go get -u golang.org/x/lint/golint
+
+before_script:
+  - gofmt -d -s *.go
+  - golint *.go
+  - go vet *.go
+  - go test .
+
+script:
+  - go build .
