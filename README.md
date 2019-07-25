@@ -1,5 +1,7 @@
 # yaml2go
 
+[![Build Status](https://travis-ci.org/PrasadG193/yaml2go.svg?branch=master)](https://travis-ci.org/PrasadG193/yaml2go)
+
 Converts YAML specs into Go type definitions
 
 ![https://github.com/PrasadG193/yaml2go](./yaml2go.png)
