@@ -97,6 +97,22 @@ type Yaml2Go struct {
 
 ## Usage
 
+#### Show help
+
+```bash
+yaml2go --help
+yaml2go converts YAML specs to Go type definitions
+
+Usage:
+    yaml2go < /path/to/yamlspec.yaml
+
+Examples:
+    yaml2go < test/example1.yaml
+    yaml2go < test/example1.yaml > example1.go
+```
+
+#### Convert yaml spec to Go struct
+
 ```bash
 $ yaml2go < example.yaml
 ```
