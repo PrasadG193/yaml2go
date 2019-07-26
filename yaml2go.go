@@ -11,6 +11,16 @@ import (
 	"strings"
 )
 
+const helpMsg = `yaml2go converts YAML specs to Go type definitions
+
+Usage:
+    yaml2go < /path/to/yamlspec.yaml
+
+Examples:
+    yaml2go < test/example1.yaml
+    yaml2go < test/example1.yaml > example1.go
+`
+
 // Yaml2Go to store converted result
 type Yaml2Go struct {
 	Result string
@@ -21,7 +31,22 @@ func (yg *Yaml2Go) AppendResult(line string) {
 	yg.Result += line
 }
 
+func printHelp(f string) {
+	helpArgs := []string{"-h", "--help", "help"}
+	for _, m := range helpArgs {
+		if f == m {
+			fmt.Println(helpMsg)
+			os.Exit(0)
+		}
+	}
+}
+
 func main() {
+	// Read args
+	if len(os.Args) > 1 {
+		printHelp(os.Args[1])
+	}
+
 	// Read input from the console
 	var data string
 	scanner := bufio.NewScanner(os.Stdin)
