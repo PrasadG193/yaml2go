@@ -11,6 +11,17 @@ Converts YAML specs into Go type definitions
 
 ## Installation
 
+### Binary Installation
+
+Pre-compiled binaries are available on the releases page. You can use the install.sh script to automatically install one for your local platform:
+
+```bash
+$ curl https://raw.githubusercontent.com/PrasadG193/yaml2go/release/install.sh | sh
+```
+
+
+### Install From Source
+
 #### Step 1: Clone the repo
 ```bash
 $ git clone https://github.com/PrasadG193/yaml2go.git $GOPATH/src/github.com/PrasadG193/yaml2go
