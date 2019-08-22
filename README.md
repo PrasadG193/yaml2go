@@ -6,9 +6,6 @@ Converts YAML specs into Go type definitions
 
 ![https://github.com/PrasadG193/yaml2go](./yaml2go.png)
 
-
-[![asciicast](https://asciinema.org/a/bCu9sI4j77r2Ut8U8pnTXZoU1.svg)](https://asciinema.org/a/bCu9sI4j77r2Ut8U8pnTXZoU1)
-
 ## Installation
 
 ### Binary Installation
@@ -18,7 +15,6 @@ Pre-compiled binaries are available on the releases page. You can use the instal
 ```bash
 $ curl https://raw.githubusercontent.com/PrasadG193/yaml2go/master/install.sh | sh
 ```
-
 
 ### Install From Source
 
@@ -75,34 +71,53 @@ is_underscore: true
 ```
 
 ```bash
-$ $GOPATH/bin/yaml2go < example1.yaml
+$ GOPATH/bin/yaml2go < example1.yaml
+// Yaml2Go
 type Yaml2Go struct {
-        Kind     string `yaml:"kind"`
-        Metadata struct {
-                Name         string      `yaml:"name"`
-                Nullfield    interface{} `yaml:"nullfield"`
-                Nestedstruct []struct {
-                        Nested struct {
-                                UnderscoreField string    `yaml:"underscore_field"`
-                                Field1          []float64 `yaml:"field1"`
-                                Field2          []bool    `yaml:"field2"`
-                        } `yaml:"nested"`
-                        Nested2 []struct {
-                                Nested3 struct {
-                                        Field1 []int  `yaml:"field1"`
-                                        Fieldt []bool `yaml:"fieldt"`
-                                        Field3 string `yaml:"field3"`
-                                } `yaml:"nested3"`
-                        } `yaml:"nested2"`
-                } `yaml:"nestedstruct"`
-        } `yaml:"metadata"`
-        Abc []struct {
-                Def []string `yaml:"def"`
-        } `yaml:"abc"`
+        Kind         string    `yaml:"kind"`
+        Metadata     Metadata  `yaml:"metadata"`
+        Abc          []Abc     `yaml:"abc"`
         Array1       []string  `yaml:"array1"`
         Array2       []int     `yaml:"array2"`
         Array3       []float64 `yaml:"array3"`
         IsUnderscore bool      `yaml:"is_underscore"`
+}
+
+// Metadata
+type Metadata struct {
+        Name         string         `yaml:"name"`
+        Nullfield    interface{}    `yaml:"nullfield"`
+        Nestedstruct []Nestedstruct `yaml:"nestedstruct"`
+}
+
+// Nested3
+type Nested3 struct {
+        Field1 []int  `yaml:"field1"`
+        Fieldt []bool `yaml:"fieldt"`
+        Field3 string `yaml:"field3"`
+}
+
+// Abc
+type Abc struct {
+        Def []string `yaml:"def"`
+}
+
+// Nestedstruct
+type Nestedstruct struct {
+        Nested  Nested    `yaml:"nested"`
+        Nested2 []Nested2 `yaml:"nested2"`
+}
+
+// Nested
+type Nested struct {
+        UnderscoreField string    `yaml:"underscore_field"`
+        Field1          []float64 `yaml:"field1"`
+        Field2          []bool    `yaml:"field2"`
+}
+
+// Nested2
+type Nested2 struct {
+        Nested3 Nested3 `yaml:"nested3"`
 }
 ```
 
@@ -170,34 +185,53 @@ is_underscore: true
 ```
 
 ```bash
-$ $GOPATH/bin/yaml2go < example1.yaml
+$ GOPATH/bin/yaml2go < example1.yaml
+// Yaml2Go
 type Yaml2Go struct {
-        Kind     string `yaml:"kind"`
-        Metadata struct {
-                Name         string      `yaml:"name"`
-                Nullfield    interface{} `yaml:"nullfield"`
-                Nestedstruct []struct {
-                        Nested struct {
-                                UnderscoreField string    `yaml:"underscore_field"`
-                                Field1          []float64 `yaml:"field1"`
-                                Field2          []bool    `yaml:"field2"`
-                        } `yaml:"nested"`
-                        Nested2 []struct {
-                                Nested3 struct {
-                                        Field1 []int  `yaml:"field1"`
-                                        Fieldt []bool `yaml:"fieldt"`
-                                        Field3 string `yaml:"field3"`
-                                } `yaml:"nested3"`
-                        } `yaml:"nested2"`
-                } `yaml:"nestedstruct"`
-        } `yaml:"metadata"`
-        Abc []struct {
-                Def []string `yaml:"def"`
-        } `yaml:"abc"`
+        Kind         string    `yaml:"kind"`
+        Metadata     Metadata  `yaml:"metadata"`
+        Abc          []Abc     `yaml:"abc"`
         Array1       []string  `yaml:"array1"`
         Array2       []int     `yaml:"array2"`
         Array3       []float64 `yaml:"array3"`
         IsUnderscore bool      `yaml:"is_underscore"`
+}
+
+// Metadata
+type Metadata struct {
+        Name         string         `yaml:"name"`
+        Nullfield    interface{}    `yaml:"nullfield"`
+        Nestedstruct []Nestedstruct `yaml:"nestedstruct"`
+}
+
+// Nested3
+type Nested3 struct {
+        Field1 []int  `yaml:"field1"`
+        Fieldt []bool `yaml:"fieldt"`
+        Field3 string `yaml:"field3"`
+}
+
+// Abc
+type Abc struct {
+        Def []string `yaml:"def"`
+}
+
+// Nestedstruct
+type Nestedstruct struct {
+        Nested  Nested    `yaml:"nested"`
+        Nested2 []Nested2 `yaml:"nested2"`
+}
+
+// Nested
+type Nested struct {
+        UnderscoreField string    `yaml:"underscore_field"`
+        Field1          []float64 `yaml:"field1"`
+        Field2          []bool    `yaml:"field2"`
+}
+
+// Nested2
+type Nested2 struct {
+        Nested3 Nested3 `yaml:"nested3"`
 }
 ```
 
