@@ -70,7 +70,7 @@ func TestConvert(t *testing.T) {
 	}
 
 	// Test example1
-	data, err := ioutil.ReadFile("tests/example1.yaml")
+	data, err := ioutil.ReadFile("testdata/example1.yaml")
 	if err != nil {
 		log.Fatal("Failed to access tests/example1.yaml. ", err.Error())
 	}

@@ -4,11 +4,14 @@ before:
   hooks:
     # you may remove this if you don't use vgo
     - go mod download
-    # you may remove this if you don't need go generate
-    - go generate ./...
 builds:
-- env:
+- id: yaml2go
+  binary: yaml2go
+  main: cmd/cli/main.go
+  env:
   - CGO_ENABLED=0
+  - GO111MODULE=on
+  - GO_EXTLINK_ENABLED=0
 archives:
 - replacements:
     darwin: Darwin
