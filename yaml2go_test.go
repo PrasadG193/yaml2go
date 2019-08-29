@@ -1,9 +1,7 @@
-package main
+package yaml2go
 
 import (
 	"fmt"
-	"go/format"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 	"strings"
@@ -11,31 +9,19 @@ import (
 )
 
 func conversion(data []byte) string {
-	var d map[string]interface{}
-	err := yaml.Unmarshal(data, &d)
-	if err != nil {
-		log.Fatal("Failed to parse input")
-	}
+	y2g := New()
+	result := y2g.Convert("Yaml2Go", data)
 
-	y2g := Yaml2Go{}
-	y2g.AppendResult("type Yaml2Go struct {\n")
-	y2g.Convert(d)
-	y2g.AppendResult("}")
-
-	// Convert result into go format
-	_, err = format.Source([]byte(y2g.Result))
-	if err != nil {
-		log.Fatal("go fmt error:", err)
-	}
-	return string(y2g.Result)
+	return result
 }
 
 func compareResults(actual []string, expected map[string]bool) error {
-	if len(actual) != len(expected) {
-		return fmt.Errorf("incomplete conversion")
-	}
 	for _, r := range actual {
+		if len(r) == 0 {
+			continue
+		}
 		if ok, _ := expected[r]; !ok {
+			fmt.Printf("Couldn't find: %s %d\n", r, len(r))
 			return fmt.Errorf("incomplete conversion")
 		}
 	}
@@ -45,36 +31,40 @@ func compareResults(actual []string, expected map[string]bool) error {
 func TestConvert(t *testing.T) {
 	expected := map[string]map[string]bool{
 		"example1": map[string]bool{
-			"type Yaml2Go struct {":                      true,
-			"Array3 []float64 `yaml:\"array3\"`":         true,
-			"Kind string `yaml:\"kind\"`":                true,
-			"Metadata struct {":                          true,
-			"Name string `yaml:\"name\"`":                true,
-			"Nullfield interface{} `yaml:\"nullfield\"`": true,
-			"Nestedstruct []struct {":                    true,
-			"Nested struct {":                            true,
-
-			"UnderscoreField string `yaml:\"underscore_field\"`": true,
-
-			"Field1 []float64 `yaml:\"field1\"`":         true,
-			"Field2 []bool `yaml:\"field2\"`":            true,
-			"} `yaml:\"nested\"`":                        true,
-			"Nested2 []struct {":                         true,
-			"Nested3 struct {":                           true,
-			"Field1 []int `yaml:\"field1\"`":             true,
-			"Fieldt []bool `yaml:\"fieldt\"`":            true,
-			"Field3 string `yaml:\"field3\"`":            true,
-			"} `yaml:\"nested3\"`":                       true,
-			"} `yaml:\"nested2\"`":                       true,
-			"} `yaml:\"nestedstruct\"`":                  true,
-			"} `yaml:\"metadata\"`":                      true,
-			"Abc []struct {":                             true,
-			"Def []string `yaml:\"def\"`":                true,
-			"} `yaml:\"abc\"`":                           true,
-			"Array1 []string `yaml:\"array1\"`":          true,
-			"Array2 []int `yaml:\"array2\"`":             true,
-			"IsUnderscore bool `yaml:\"is_underscore\"`": true,
-
+			"// Yaml2Go":            true,
+			"type Yaml2Go struct {": true,
+			"	Kind         string    `yaml:\"kind\"`": true,
+			"	Metadata     Metadata  `yaml:\"metadata\"`": true,
+			"	Abc          []Abc     `yaml:\"abc\"`": true,
+			"	Array1       []string  `yaml:\"array1\"`": true,
+			"	Array2       []int     `yaml:\"array2\"`": true,
+			"	Array3       []float64 `yaml:\"array3\"`": true,
+			"	IsUnderscore bool      `yaml:\"is_underscore\"`": true,
+			"// Metadata":            true,
+			"type Metadata struct {": true,
+			"	Name         string         `yaml:\"name\"`": true,
+			"	Nullfield    interface{}    `yaml:\"nullfield\"`": true,
+			"	Nestedstruct []Nestedstruct `yaml:\"nestedstruct\"`": true,
+			"// Nested3":            true,
+			"type Nested3 struct {": true,
+			"	Field1 []int  `yaml:\"field1\"`": true,
+			"	Fieldt []bool `yaml:\"fieldt\"`": true,
+			"	Field3 string `yaml:\"field3\"`": true,
+			"// Abc":            true,
+			"type Abc struct {": true,
+			"	Def []string `yaml:\"def\"`": true,
+			"// Nestedstruct":            true,
+			"type Nestedstruct struct {": true,
+			"	Nested  Nested    `yaml:\"nested\"`": true,
+			"	Nested2 []Nested2 `yaml:\"nested2\"`": true,
+			"// Nested":            true,
+			"type Nested struct {": true,
+			"	UnderscoreField string    `yaml:\"underscore_field\"`": true,
+			"	Field1          []float64 `yaml:\"field1\"`": true,
+			"	Field2          []bool    `yaml:\"field2\"`": true,
+			"// Nested2":            true,
+			"type Nested2 struct {": true,
+			"	Nested3 Nested3 `yaml:\"nested3\"`": true,
 			"}": true,
 		},
 	}
