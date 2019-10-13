@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"go/format"
 	"gopkg.in/yaml.v2"
-	"log"
 	"reflect"
 	"strings"
 )
@@ -38,14 +37,14 @@ func goKeyFormat(key string) string {
 }
 
 // Convert transforms map[string]interface{} to go struct
-func (yg *Yaml2Go) Convert(structName string, data []byte) string {
+func (yg *Yaml2Go) Convert(structName string, data []byte) (string, error) {
 	yg.StructMap = make(map[string]string)
 
 	// Unmarshal to map[string]interface{}
 	var obj map[string]interface{}
 	err := yaml.Unmarshal(data, &obj)
 	if err != nil {
-		log.Fatal("Failed to parse input")
+		return "", err
 	}
 
 	yg.AppendResult("Yaml2Go", "// Yaml2Go\n")
@@ -62,9 +61,9 @@ func (yg *Yaml2Go) Convert(structName string, data []byte) string {
 	// Convert result into go format
 	goFormat, err := format.Source([]byte(result))
 	if err != nil {
-		log.Fatal("go fmt error:", err)
+		return "", err
 	}
-	return string(goFormat)
+	return string(goFormat), nil
 }
 
 // Structify transforms map key values to struct fields
