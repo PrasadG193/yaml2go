@@ -6,13 +6,15 @@ import (
 	"log"
 	"strings"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
-func conversion(data []byte) string {
+func conversion(data []byte) (string, error) {
 	y2g := New()
-	result := y2g.Convert("Yaml2Go", data)
+	result, err := y2g.Convert("Yaml2Go", data)
 
-	return result
+	return result, err
 }
 
 func compareResults(actual []string, expected map[string]bool) error {
@@ -74,7 +76,8 @@ func TestConvert(t *testing.T) {
 	if err != nil {
 		log.Fatal("Failed to access tests/example1.yaml. ", err.Error())
 	}
-	resp := conversion(data)
+	resp, err := conversion(data)
+	assert.Nil(t, err)
 
 	// Compare result
 	err = compareResults(strings.Split(resp, "\n"), expected["example1"])

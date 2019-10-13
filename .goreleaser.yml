@@ -12,6 +12,13 @@ builds:
   - CGO_ENABLED=0
   - GO111MODULE=on
   - GO_EXTLINK_ENABLED=0
+- id: yaml2go_serve
+  binary: yaml2go_serve
+  main: cmd/serve/server.go
+  env:
+  - CGO_ENABLED=0
+  - GO111MODULE=on
+  - GO_EXTLINK_ENABLED=0
 archives:
 - replacements:
     darwin: Darwin

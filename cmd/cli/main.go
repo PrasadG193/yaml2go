@@ -47,7 +47,10 @@ func main() {
 
 	// Create yaml2go object and invoke Convert()
 	y2g := yaml2go.New()
-	result := y2g.Convert("Yaml2Go", []byte(data))
+	result, err := y2g.Convert("Yaml2Go", []byte(data))
+	if err != nil {
+		log.Fatal("Invalid YAML")
+	}
 
 	fmt.Printf(result)
 	return
