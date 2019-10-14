@@ -1,4 +1,5 @@
-const URL = "http://localhost:8080/v1/convert"
+//const URL = "http://localhost:8080/v1/convert"
+const URL = "https://us-central1-yaml2go.cloudfunctions.net/yaml2go"
 
 let go = document.getElementById("goGenerator")
 
