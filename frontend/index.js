@@ -14,6 +14,8 @@ window.generatorCall=function (){
     'type' : 'POST',
     'data' : yamlData,
     'success' : function(data) { 
+        document.getElementById("error").style.display="none" 
+        document.getElementById("err-span").innerHTML="";     
         go.setValue(data)
     },
     'error' : function(jqXHR, request,error)
