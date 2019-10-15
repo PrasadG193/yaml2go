@@ -50,12 +50,14 @@ $(document).ready(function(){
     var input = $(".codemirror-textarea")[0];
     var output = $(".codemirror-textarea")[1];
     editor = CodeMirror.fromTextArea(input, {
-        mode: "text/x-yaml",
+      mode: "text/x-yaml",
     	lineNumbers : true
     });
-
+    editor.setSize(600, 400)
+    
     go = CodeMirror.fromTextArea(output, {
     	lineNumbers : true,
         mode: "text/x-go"
     });
+    go.setSize(600,400)
 });
