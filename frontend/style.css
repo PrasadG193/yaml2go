@@ -106,3 +106,31 @@ button:focus{
   text-align: center;
   color: #4582b4;
 }
+#footer{
+  text-align: center;
+}
+#githublink{
+  background-color: transparent;
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  color: steelblue;
+  margin-top: 25px;
+}
+#gith{
+  border: 1px solid steelblue;
+  padding: 10px;
+  border-radius: 5px;
+}
+#gith:hover{
+  background-color: azure;
+  
+}
+#gith:hover #githublink{
+  color: black !important;
+}
+#gitlogo{
+  width: 25px;
+  height: 25px;
+}
