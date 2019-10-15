@@ -93,3 +93,7 @@ button:focus{
   cursor: pointer;
 }
 
+
+.CodeMirror {
+  border: 1px solid lavender !important;
+}
