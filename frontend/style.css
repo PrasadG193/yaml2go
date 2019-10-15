@@ -97,3 +97,12 @@ button:focus{
 .CodeMirror {
   border: 1px solid lavender !important;
 }
+#error{
+  width: 50%;
+  margin: auto;
+  border: 1px solid azure;
+  display: none;
+  padding: 10px;
+  text-align: center;
+  color: #4582b4;
+}

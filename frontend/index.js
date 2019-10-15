@@ -20,9 +20,9 @@ window.generatorCall=function (){
     {
       document.getElementById('yamlGenerator').style.border = "1px solid red"
       if (jqXHR.status == 400) {
-        alert('Invalid yaml format')
+        displayError('Invalid yaml format')
       } else {
-        alert('Something went wrong! Please report this to me@prasadg.dev')
+        displayError('Something went wrong! Please report this to me@prasadg.dev')
       }
     }
   });
@@ -59,3 +59,8 @@ $(document).ready(function(){
         mode: "text/x-go"
     });
 });
+
+function displayError(err){
+  document.getElementById("err-span").innerHTML=err;
+  document.getElementById("error").style.display="block"
+}
