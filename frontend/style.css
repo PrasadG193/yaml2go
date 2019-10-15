@@ -104,34 +104,21 @@ button:focus{
   display: none;
   padding: 10px;
   text-align: center;
-  color: #4582b4;
+  color: red;
 }
-#footer{
-  text-align: center;
-  padding-bottom: 50px;
+#view-source{
+  margin-top: 50px;
+  margin-left: 470px;
 }
-#githublink{
-  background-color: transparent;
-  border: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 3px;
-  color: steelblue;
-  margin-top: 25px;
-}
-#gith{
+#view-source-link{
   border: 1px solid steelblue;
   padding: 10px;
-  border-radius: 5px;
-}
-#gith:hover{
-  background-color: azure;
+  color: steelblue;
   
 }
-#gith:hover #githublink{
-  color: black !important;
+#view-source a{
+  text-decoration: none !important;
 }
-#gitlogo{
-  width: 25px;
-  height: 25px;
+#view-source-link:hover{
+  background-color: white;
 }
