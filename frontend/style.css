@@ -96,4 +96,5 @@ button:focus{
 
 .CodeMirror {
   border: 1px solid lavender !important;
+  width: 500px;
 }
