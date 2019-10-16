@@ -14,15 +14,17 @@ window.generatorCall=function (){
     'type' : 'POST',
     'data' : yamlData,
     'success' : function(data) { 
+        document.getElementById("error").style.display="none" 
+        document.getElementById("err-span").innerHTML="";     
         go.setValue(data)
     },
     'error' : function(jqXHR, request,error)
     {
       document.getElementById('yamlGenerator').style.border = "1px solid red"
       if (jqXHR.status == 400) {
-        alert('Invalid yaml format')
+        displayError('Invalid yaml format')
       } else {
-        alert('Something went wrong! Please report this to me@prasadg.dev')
+        displayError('Something went wrong! Please report this to me@prasadg.dev')
       }
     }
   });
@@ -59,3 +61,8 @@ $(document).ready(function(){
         mode: "text/x-go"
     });
 });
+
+function displayError(err){
+  document.getElementById("err-span").innerHTML=err;
+  document.getElementById("error").style.display="block"
+}
