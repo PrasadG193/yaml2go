@@ -1,3 +1,7 @@
+html, body, main {
+    height:100%;
+}
+
 .apply_space{
     width: 45%;
 }
@@ -40,6 +44,7 @@
 
 .container{
     max-width: 80%;
+    height: 100%;
 }
 
 .coversion{
@@ -96,7 +101,9 @@ button:focus{
 
 .CodeMirror {
   border: 1px solid lavender !important;
+  height: 100%;
 }
+
 #error{
   width: 50%;
   margin: auto;
@@ -106,19 +113,23 @@ button:focus{
   text-align: center;
   color: red;
 }
+
 #view-source{
   margin-top: 50px;
   margin-left: 470px;
 }
+
 #view-source-link{
   border: 1px solid steelblue;
   padding: 10px;
   color: steelblue;
   
 }
+
 #view-source a{
   text-decoration: none !important;
 }
+
 #view-source-link:hover{
   background-color: white;
 }
