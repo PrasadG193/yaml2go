@@ -74,6 +74,7 @@ html, body, main {
 
 .infoData{
   margin: 16px 42px;
+  width: 50%
 }
 
 .k2Go{
@@ -115,8 +116,10 @@ button:focus{
 }
 
 #view-source{
-  margin-top: 50px;
-  margin-left: 470px;
+  margin-top: 40px;
+  width: 60%;
+  text-align: right;
+  margin-right: 100px;
 }
 
 #view-source-link{
@@ -132,4 +135,9 @@ button:focus{
 
 #view-source-link:hover{
   background-color: white;
+}
+
+.credits {
+  color: gray;
+  text-align: center;
 }
