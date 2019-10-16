@@ -67,7 +67,7 @@ $(document).ready(function(){
     '  name: cluster\n' +
     '  namespace: test-ns\n')
 
-    go.setValue('// Yaml2Go'+
+    go.setValue('// Yaml2Go\n'+
     'type Yaml2Go struct {\n' +
     '	Kind     string   `yaml:"kind"`\n' +
     '	Metadata Metadata `yaml:"metadata"`\n' +
