@@ -60,6 +60,24 @@ $(document).ready(function(){
     	lineNumbers : true,
         mode: "text/x-go"
     });
+
+    editor.setValue('# Paste your yaml here...\n'+
+    'kind: test\n' +
+    'metadata:\n' +
+    '  name: cluster\n' +
+    '  namespace: test-ns\n')
+
+    go.setValue('// Yaml2Go'+
+    'type Yaml2Go struct {\n' +
+    '	Kind     string   `yaml:"kind"`\n' +
+    '	Metadata Metadata `yaml:"metadata"`\n' +
+    '}\n' +
+    '\n' +
+    '// Metadata\n' +
+    'type Metadata struct {\n' +
+    '	Name      string `yaml:"name"`\n' +
+    '	Namespace string `yaml:"namespace"`\n' +
+    '}\n')
 });
 
 function displayError(err){

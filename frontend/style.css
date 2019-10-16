@@ -1,3 +1,7 @@
+html, body, main {
+    height:100%;
+}
+
 .apply_space{
     width: 45%;
 }
@@ -40,6 +44,7 @@
 
 .container{
     max-width: 80%;
+    height: 100%;
 }
 
 .coversion{
@@ -69,6 +74,7 @@
 
 .infoData{
   margin: 16px 42px;
+  width: 50%
 }
 
 .k2Go{
@@ -96,7 +102,9 @@ button:focus{
 
 .CodeMirror {
   border: 1px solid lavender !important;
+  height: 100%;
 }
+
 #error{
   width: 50%;
   margin: auto;
@@ -106,19 +114,30 @@ button:focus{
   text-align: center;
   color: red;
 }
+
 #view-source{
-  margin-top: 50px;
-  margin-left: 470px;
+  margin-top: 40px;
+  width: 60%;
+  text-align: right;
+  margin-right: 100px;
 }
+
 #view-source-link{
   border: 1px solid steelblue;
   padding: 10px;
   color: steelblue;
   
 }
+
 #view-source a{
   text-decoration: none !important;
 }
+
 #view-source-link:hover{
   background-color: white;
+}
+
+.credits {
+  color: gray;
+  text-align: center;
 }
