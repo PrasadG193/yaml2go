@@ -31,6 +31,7 @@ window.generatorCall=function (){
 
 //Convert
 document.getElementById("convert").addEventListener('click', ()=>{
+  console.log('Temp Data')
    generatorCall()
 })
 
