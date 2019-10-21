@@ -10,12 +10,12 @@ window.generatorCall = function () {
   document.getElementById('yamlGenerator').style.border = "1px solid #ced4da"
   yamlData = editor.getValue()
   $.ajax({
-    'url' : `${URL}`,
-    'type' : 'POST',
-    'data' : yamlData,
-    'success' : function(data) {
-        document.getElementById("error").style.display="none"
-        document.getElementById("err-span").innerHTML="";
+    'url': `${URL}`,
+    'type': 'POST',
+    'data': yamlData,
+    'success': function (data) { 
+        document.getElementById("error").style.display="none" 
+        document.getElementById("err-span").innerHTML="";     
         go.setValue(data)
     },
     'error': function (jqXHR, request, error) {
@@ -56,7 +56,16 @@ $(document).ready(function () {
     lineNumbers: true
   });
   editor.setSize(600, 400)
-
+  go = CodeMirror.fromTextArea(output, {
+    lineNumbers: true,
+    mode: "text/x-go"
+  });
+  go.setSize(600, 400)
+  $('.CodeMirror').resizable({
+    resize: function () {
+      editor.setSize($(this).width(), $(this).height());
+    }
+  });
     go = CodeMirror.fromTextArea(output, {
     	lineNumbers : true,
         mode: "text/x-go"
