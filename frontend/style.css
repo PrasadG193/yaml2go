@@ -1,143 +1,143 @@
 html, body, main {
-  height:100%;
+    height:100%;
 }
 
 .apply_space{
-  width: 45%;
+    width: 45%;
 }
 
 .button_yaml{
-  width: 50px;
-  height: 50px;     
-  top: 50%;
-  margin: auto;
-  left: 0;
-  right: 0;
+    width: 50px;
+    height: 50px;     
+    top: 50%;
+    margin: auto;
+    left: 0;
+    right: 0;
 }
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes example {
-  0%   {border-color: #FF851B;}
-  25%  {border-color: #0074D9;}
-  50%  {border-color: #F012BE;}
-  75%  {border-color: #B10DC9;}
-  100% {border-color: #001f3f;}
+    0%   {border-color: #FF851B;}
+    25%  {border-color: #0074D9;}
+    50%  {border-color: #F012BE;}
+    75%  {border-color: #B10DC9;}
+    100% {border-color: #001f3f;}
+    
+  }
   
-}
-
-/* Standard syntax */
-@keyframes example {
-  0%   {border-color: #FF851B;}
-  25%  {border-color: #0074D9;}
-  50%  {border-color: #F012BE;}
-  75%  {border-color: #B10DC9;}
-  100% {border-color: #001f3f;}
-}
+  /* Standard syntax */
+  @keyframes example {
+    0%   {border-color: #FF851B;}
+    25%  {border-color: #0074D9;}
+    50%  {border-color: #F012BE;}
+    75%  {border-color: #B10DC9;}
+    100% {border-color: #001f3f;}
+  }
 
 
 .btn {
-background-color: steelBlue; /* Blue background */
-border: none; /* Remove borders */
-color: white; /* White text */
-cursor: pointer; /* Mouse pointer on hover */
+  background-color: steelBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  cursor: pointer; /* Mouse pointer on hover */
 }
 
 .container{
-  max-width: 80%;
-  height: 100%;
+    max-width: 80%;
+    height: 100%;
 }
 
 .coversion{
-  width: 21px;
-  margin-left: 12px;
-  margin-top: 16px;
+    width: 21px;
+    margin-left: 12px;
+    margin-top: 16px;
 }
 .clear_code{
-  float: right;
-  margin-top: 8px;
+    float: right;
+    margin-top: 8px;
 }
 
 .modify{
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .go-float{
-float: right;
+  float: right;
 }
 
 .jumbotron {
-padding: 10px 0 !important;
-background-color: azure !important;
+  padding: 10px 0 !important;
+  background-color: azure !important;
 }
 
 
 .infoData{
-margin: 16px 42px;
-width: 50%
+  margin: 16px 42px;
+  width: 50%
 }
 
 .k2Go{
-font-size: 22px;  
-color: steelblue;
-font-family: monospace;
-margin-bottom: 4px;
+  font-size: 22px;  
+  color: steelblue;
+  font-family: monospace;
+  margin-bottom: 4px;
 }
 
 .secondaryData{
-font-size: 15px;
-color: steelblue;
-font-family: monospace;
+  font-size: 15px;
+  color: steelblue;
+  font-family: monospace;
 }
 
 button:focus{
-outline: none;
-box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .pointer{
-cursor: pointer;
+  cursor: pointer;
 }
 
 
 .CodeMirror {
-border: 1px solid lavender !important;
-height: 100%;
+  border: 1px solid lavender !important;
+  height: 100%;
 }
 
 #error{
-width: 50%;
-margin: auto;
-border: 1px solid azure;
-display: none;
-padding: 10px;
-text-align: center;
-color: red;
+  width: 50%;
+  margin: auto;
+  border: 1px solid azure;
+  display: none;
+  padding: 10px;
+  text-align: center;
+  color: red;
 }
 
 #view-source{
-margin-top: 40px;
-width: 60%;
-text-align: right;
-margin-right: 100px;
+  margin-top: 40px;
+  width: 60%;
+  text-align: right;
+  margin-right: 100px;
 }
 
 #view-source-link{
-border: 1px solid steelblue;
-padding: 10px;
-color: steelblue;
-
+  border: 1px solid steelblue;
+  padding: 10px;
+  color: steelblue;
+  
 }
 
 #view-source a{
-text-decoration: none !important;
+  text-decoration: none !important;
 }
 
 #view-source-link:hover{
-background-color: white;
+  background-color: white;
 }
 
 .credits {
-color: gray;
-text-align: center;
+  color: gray;
+  text-align: center;
 }

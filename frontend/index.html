@@ -9,23 +9,25 @@
   <!--Bootstrap version 4.3.1-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!--Code Mirror CSS-->
-  <link rel="stylesheet" type="text/css" href="plugin/codemirror/lib/codemirror.css">
-  <!--Font Awesome-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Main Style CSS-->
-  <link rel="stylesheet" href="./style.css" />
-  <!--Icon -->
-  <link rel="icon" type="image/gif/png"
-    href="https://raw.githubusercontent.com/PrasadG193/yaml2go/master/yaml2go.png" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150234067-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'UA-150234067-1');
-  </script>
+    <!--Code Mirror CSS-->
+    <link rel="stylesheet" type="text/css" href="plugin/codemirror/lib/codemirror.css">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Main Style CSS-->
+    <link rel="stylesheet" href="./style.css" />
+    <!--Icon -->
+    <link rel="icon" type="image/gif/png"
+      href="https://raw.githubusercontent.com/PrasadG193/yaml2go/master/yaml2go.png" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150234067-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-150234067-1');
+    </script>
 </head>
 
 <body>
@@ -41,7 +43,10 @@
           <p class="secondaryData">
             Convert YAML specs to Go type definitions
           </p>
-        </div>
+        </div>  
+      </div>
+      <div id="view-source">
+          <a id="view-source-link" href="https://github.com/PrasadG193/yaml2go"><i class="fa fa-github"></i> &nbsp;View Source</a>
       </div>
       <div id="view-source">
         <a id="view-source-link" href="https://github.com/PrasadG193/yaml2go"><i class="fa fa-github"></i> &nbsp;View
@@ -50,6 +55,11 @@
     </div>
     <div id="error">
       <span id="err-span"></span>
+    </div>
+    <div id="error">
+      <span id="err-span">
+
+      </span>
     </div>
     <div class="container">
       <!-- Example row of columns -->
@@ -71,11 +81,9 @@
       </div>
       <hr>
       <p class="credits">
-        We would love your input. Please feel free to send PRs and open issues on the <a
-          href="https://github.com/PrasadG193/yaml2go"> Github repo</a><br>
-        The Go Gopher is originally by <a href="http://reneefrench.blogspot.com">Renee French</a><br>
-        This artwork is borrowed from an awesome artwork collection by <a
-          href="https://github.com/egonelbre/gophers">Egon Elbre</a><br>
+      We would love your input. Please feel free to send PRs and open issues on the <a href="https://github.com/PrasadG193/yaml2go"> Github repo</a><br>
+      The Go Gopher is originally by <a href="http://reneefrench.blogspot.com">Renee French</a><br>
+      This artwork is borrowed from an awesome artwork collection by <a href="https://github.com/egonelbre/gophers">Egon Elbre</a><br>
     </div> <!-- /container -->
   </main>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
