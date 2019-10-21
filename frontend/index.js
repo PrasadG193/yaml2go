@@ -10,21 +10,14 @@ window.generatorCall = function () {
   document.getElementById('yamlGenerator').style.border = "1px solid #ced4da"
   yamlData = editor.getValue()
   $.ajax({
-<<<<<<< HEAD
+
     'url': `${URL}`,
     'type': 'POST',
     'data': yamlData,
-    'success': function (data) {
-      go.setValue(data)
-=======
-    'url' : `${URL}`,
-    'type' : 'POST',
-    'data' : yamlData,
-    'success' : function(data) { 
+    'success': function (data) { 
         document.getElementById("error").style.display="none" 
         document.getElementById("err-span").innerHTML="";     
         go.setValue(data)
->>>>>>> bc7e5ec3892591842482a566bc541446c42b6b46
     },
     'error': function (jqXHR, request, error) {
       document.getElementById('yamlGenerator').style.border = "1px solid red"
@@ -64,8 +57,6 @@ $(document).ready(function () {
     lineNumbers: true
   });
   editor.setSize(600, 400)
-
-<<<<<<< HEAD
   go = CodeMirror.fromTextArea(output, {
     lineNumbers: true,
     mode: "text/x-go"
@@ -76,7 +67,6 @@ $(document).ready(function () {
       editor.setSize($(this).width(), $(this).height());
     }
   });
-=======
     go = CodeMirror.fromTextArea(output, {
     	lineNumbers : true,
         mode: "text/x-go"
@@ -99,7 +89,6 @@ $(document).ready(function () {
     '	Name      string `yaml:"name"`\n' +
     '	Namespace string `yaml:"namespace"`\n' +
     '}\n')
->>>>>>> bc7e5ec3892591842482a566bc541446c42b6b46
 });
 
 function displayError(err){
