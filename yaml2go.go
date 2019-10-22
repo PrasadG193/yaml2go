@@ -13,8 +13,14 @@ func New() Yaml2Go {
 	return Yaml2Go{}
 }
 
+type line struct {
+	structName string
+	line       string
+}
+
 // Yaml2Go to store converted result
 type Yaml2Go struct {
+	Visited   map[line]bool
 	StructMap map[string]string
 }
 
@@ -26,13 +32,18 @@ func (yg *Yaml2Go) NewStruct(structName string, parent string) string {
 		structName = goKeyFormat(parent) + structName
 	}
 	yg.AppendResult(structName, fmt.Sprintf("// %s\n", structName))
-	yg.StructMap[structName] += fmt.Sprintf("type %s struct {\n", structName)
+	l := fmt.Sprintf("type %s struct {\n", structName)
+	yg.Visited[line{structName, l}] = true
+	yg.StructMap[structName] += l
 	return structName
 }
 
 // AppendResult add lines to the result
-func (yg *Yaml2Go) AppendResult(structName string, line string) {
-	yg.StructMap[structName] += line
+func (yg *Yaml2Go) AppendResult(structName string, l string) {
+	if _, ok := yg.Visited[line{structName, l}]; !ok {
+		yg.StructMap[structName] += l
+	}
+	yg.Visited[line{structName, l}] = true
 }
 
 // removeUnderscores and camelize string
@@ -50,6 +61,7 @@ func goKeyFormat(key string) string {
 
 // Convert transforms map[string]interface{} to go struct
 func (yg *Yaml2Go) Convert(structName string, data []byte) (string, error) {
+	yg.Visited = make(map[line]bool)
 	yg.StructMap = make(map[string]string)
 
 	// Unmarshal to map[string]interface{}

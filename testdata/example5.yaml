@@ -1,0 +1,9 @@
+before_build_hooks:
+    - action:               'bb_hook_rmpath_in_target'
+      args:                 'SRC'
+    - action:               'bb_hook_rmpath_in_target'
+      args:                 'LOG'
+    - action:               'bb_hook_rmpath_in_target'
+      args:                 'DB/Teradata/20_new_objects'
+    - action:                'bb_hook_rmpath_in_target'
+      args:                 'DB/_Deployment_Teradadata'
